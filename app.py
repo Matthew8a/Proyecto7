@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-car_data = pd.read_csv("vehicles_us.csv")
+car_data = pd.read_csv("vehicles_usp.csv")
 
-st.header("Proyecto 7")
+st.header("Bienvenido al Proyecto 7")
+st.write("Creado por: Mateo Ochoa")
 
 check_hist = st.checkbox("Genera un histograma")
 
@@ -18,4 +19,6 @@ check_disp = st.checkbox("Genera un gráfico de dispersión")
 
 if check_disp:
     st.write("Creacion de un gráfico de dispersión para el conjunto de datos de anuncios de ventas de coches")
-    disp = px.scatter(car_data)
+    # crear un gráfico de dispersión
+    disp = px.scatter(car_data, x="odometer", y="price")
+    st.plotly_chart(disp)
